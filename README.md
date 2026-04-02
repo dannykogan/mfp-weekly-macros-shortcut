@@ -118,4 +118,4 @@ MIT — do whatever you want with it.
 
 ## Credits
 
-Built by Dan with help from Claude (Anthropic). The "is between" exclusivity workaround was discovered through extensive trial and error.
+Built by Dan 
