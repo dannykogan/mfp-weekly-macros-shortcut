@@ -30,8 +30,7 @@ Cal: 2492 | Pro: 186g | Carbs: 215g | Fat: 105g
 ## How to install
 
 ### Option A: iCloud link (easiest)
-[Download shortcut via iCloud link](#) *https://github.com/dannykogan/mfp-weekly-macros-shortcut/tree/main*
-
+[[Download shortcut via iCloud link](https://www.icloud.com/shortcuts/76a4640f53734668bb8712ecb7f2f7e9)]
 ### Option B: Build it manually
 
 Open the **Shortcuts** app on your iPhone and create a new shortcut with these actions in order:
