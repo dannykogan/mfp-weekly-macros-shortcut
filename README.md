@@ -30,7 +30,7 @@ Cal: 2492 | Pro: 186g | Carbs: 215g | Fat: 105g
 ## How to install
 
 ### Option A: iCloud link (easiest)
-[Download shortcut via iCloud link](#) *(replace with your iCloud share link)*
+[Download shortcut via iCloud link](#) *https://github.com/dannykogan/mfp-weekly-macros-shortcut/tree/main*
 
 ### Option B: Build it manually
 
