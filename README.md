@@ -81,8 +81,14 @@ exercise numbers, updates your Notion tracker, and shows a compliance summary.
 
 **Step 2: Add the skill**
 
-Download [`SKILL.md`](./SKILL.md) from this repo. In Claude.ai, open your project
-(or create one), go to Settings → Skills, and upload it.
+Claude's skill uploader takes a `.zip`, so this repo ships a ready-made one:
+
+1. Download **[`mfp-muscle-protocol.zip`](https://github.com/dannykogan/mfp-weekly-macros-shortcut/raw/main/mfp-muscle-protocol.zip)** (the link downloads the file directly — no GitHub account needed).
+2. In Claude.ai: **Settings → Capabilities → Skills → Upload skill** and select the zip.
+3. Turn the skill on for the project (or chat) where you'll paste your macros.
+
+> Prefer to read or edit the skill first? It's [`SKILL.md`](./SKILL.md) — open it, hit
+> **Raw**, then save. Re-zip it (with `SKILL.md` at the root of the zip) before uploading.
 
 **Step 3: Run first-time setup**
 
@@ -145,7 +151,8 @@ The skill auto-detects which phase is active based on today's date.
 | File | What it is |
 |------|-----------|
 | `README.md` | This file — full system overview |
-| `SKILL.md` | The Claude skill template — download and configure |
+| `mfp-muscle-protocol.zip` | The skill packaged for one-click upload to Claude.ai |
+| `SKILL.md` | The skill source — same content, for reading/editing |
 | `SHORTCUT_SETUP.md` | Precise step-by-step iOS Shortcut build guide (Part 1) |
 | `NOTION_SETUP.md` | Manual Notion database setup guide |
 
