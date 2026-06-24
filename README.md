@@ -87,8 +87,7 @@ Claude's skill uploader takes a `.zip`, so this repo ships a ready-made one:
 2. In Claude.ai: **Settings → Capabilities → Skills → Upload skill** and select the zip.
 3. Turn the skill on for the project (or chat) where you'll paste your macros.
 
-> Prefer to read or edit the skill first? It's [`SKILL.md`](./SKILL.md) — open it, hit
-> **Raw**, then save. Re-zip it (with `SKILL.md` at the root of the zip) before uploading.
+> Prefer to read or edit the skill first? It's [`SKILL.md`](./SKILL.md).
 
 **Step 3: Run first-time setup**
 
