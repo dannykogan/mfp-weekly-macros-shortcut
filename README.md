@@ -1,205 +1,166 @@
 # MFP Muscle Protocol
 
-A free, zero-subscription body composition tracking system. Pull your weekly MyFitnessPal
-averages with one tap on iPhone, paste them into Claude, and your Notion tracker
-auto-updates with compliance formulas calculated.
+Track your body-comp progress for **free**. One tap on your iPhone grabs your weekly
+MyFitnessPal averages → paste into Claude → your Notion tracker updates itself, compliance
+and all.
 
-No Zapier. No paid APIs. No subscriptions beyond what you're probably already using.
-
----
-
-## How it works
+No Zapier. No paid APIs. No spreadsheets. ~2 minutes a week.
 
 ```
-MyFitnessPal  ──sync──▶  Apple Health  ──Shortcut──▶  Clipboard
-                                                           │
-                                                           ▼
-                                               Paste into Claude chat
-                                                           │
-                                                    SKILL.md loaded
-                                                           │
-                                                           ▼
-                                              Notion tracker updated
-                                           (compliance auto-calculated)
+MyFitnessPal → Apple Health → iPhone Shortcut → paste into Claude → Notion updates itself
 ```
 
 ---
 
-## What you need
+## Your week (once it's set up)
+
+1. **Tap the Shortcut** on your iPhone — it copies your week's macros.
+2. **Paste into Claude.**
+3. **Tell Claude your workouts** when it asks. Done.
+
+That's the whole routine. Everything below is the one-time setup.
+
+---
+
+## Setup — about 10 minutes, once
+
+You'll need an iPhone, MyFitnessPal (free), Notion (free), and Claude Pro. Do these two
+steps once and you're set.
+
+<details>
+<summary><b>① Add the iPhone Shortcut</b> (2 min)</summary>
+
+<br>
+
+First, make sure MyFitnessPal is sending data to Apple Health:
+**MFP app → More → Settings → Sharing & Privacy → HealthKit Sharing** → toggle ON
+Calories, Protein, Carbohydrates, Fat.
+
+Then tap to install:
+
+> 📲 **[Install the iOS Shortcut](https://www.icloud.com/shortcuts/76a4640f53734668bb8712ecb7f2f7e9)**
+
+That's it. Tapping the Shortcut copies your latest Sunday–Saturday averages, like:
+`Cal: 2492 | Pro: 186g | Carbs: 215g | Fat: 105g`
+
+*Want to build it by hand or see how it works? → [SHORTCUT_SETUP.md](./SHORTCUT_SETUP.md)*
+
+</details>
+
+<details>
+<summary><b>② Add the Claude skill + your Notion tracker</b> (~8 min)</summary>
+
+<br>
+
+**a. Connect Notion to Claude** — Claude.ai → Settings → Connectors → Notion → Connect.
+
+**b. Add the skill** — download **[`mfp-muscle-protocol.zip`](https://github.com/dannykogan/mfp-weekly-macros-shortcut/raw/main/mfp-muscle-protocol.zip)** (downloads directly, no GitHub account needed), then in Claude.ai go to **Settings → Capabilities → Skills → Upload skill** and pick the zip.
+
+**c. Tell Claude to set you up** — in a chat with the skill on, say:
+
+> "Set up my muscle protocol tracker"
+
+Claude asks for your phase dates, macro goals, and workout goals, then builds your Notion
+tracker for you (or connects to one you already have). One conversation and you're done.
+
+*Prefer to build the Notion database by hand? → [NOTION_SETUP.md](./NOTION_SETUP.md)*
+
+</details>
+
+---
+
+<details>
+<summary>What you'll need (and what it costs)</summary>
+
+<br>
 
 | Requirement | Cost | Notes |
 |-------------|------|-------|
-| iPhone | — | iOS Shortcut runs on iPhone only |
+| iPhone | — | The Shortcut is iPhone-only |
 | MyFitnessPal | Free | Log food daily |
 | Apple Health | Free | Comes with iPhone; MFP syncs to it |
 | Notion | Free | Personal plan is fine |
-| Claude | Pro ($20/mo) | Needs Notion integration + skills |
+| Claude | Pro (~$20/mo) | Needs the Notion connector + skills |
 
----
+</details>
 
-## Part 1 — iOS Shortcut
+<details>
+<summary>How Claude grades each week (compliance rules)</summary>
 
-Pulls your Sunday–Saturday weekly averages from Apple Health and copies them to your
-clipboard in one tap.
+<br>
 
-**Output format:**
-```
-Cal: 2492 | Pro: 186g | Carbs: 215g | Fat: 105g
-```
-
-### Setup
-
-**Prerequisites:**
-1. MyFitnessPal installed and logging food daily
-2. MFP → Apple Health sync enabled:
-   - MFP app → More → Settings → Sharing & Privacy → HealthKit Sharing
-   - Toggle ON: Calories In, Protein, Carbohydrates, Fat Total
-
-**Install the Shortcut:**
-
-> 📲 [Download iOS Shortcut — tap to install on iPhone](https://www.icloud.com/shortcuts/76a4640f53734668bb8712ecb7f2f7e9)
-
-Prefer to build it yourself, or want to understand how the Sun–Sat window works?
-See the precise step-by-step build in **[SHORTCUT_SETUP.md](./SHORTCUT_SETUP.md)**.
-
-**Key technical detail:** iOS Shortcuts' "is between" filter for Health samples is exclusive
-on both endpoints (undocumented behavior). The shortcut widens the date window by one day on
-each side to compensate — full explanation in [SHORTCUT_SETUP.md](./SHORTCUT_SETUP.md).
-
----
-
-## Part 2 — Claude Skill
-
-Accepts the pasted macro data, determines the current week in your phase, asks for
-exercise numbers, updates your Notion tracker, and shows a compliance summary.
-
-### Setup
-
-**Step 1: Connect Notion to Claude**
-- Claude.ai → Settings → Integrations → Notion → Connect
-- Authorize access to your workspace
-
-**Step 2: Add the skill**
-
-Claude's skill uploader takes a `.zip`, so this repo ships a ready-made one:
-
-1. Download **[`mfp-muscle-protocol.zip`](https://github.com/dannykogan/mfp-weekly-macros-shortcut/raw/main/mfp-muscle-protocol.zip)** (the link downloads the file directly — no GitHub account needed).
-2. In Claude.ai: **Settings → Capabilities → Skills → Upload skill** and select the zip.
-3. Turn the skill on for the project (or chat) where you'll paste your macros.
-
-> Prefer to read or edit the skill first? It's [`SKILL.md`](./SKILL.md).
-
-**Step 3: Run first-time setup**
-
-In a Claude chat with the skill loaded, say:
-> "Set up my muscle protocol tracker"
-
-Claude will ask for your phase dates, macro goals, exercise goals, and Notion database
-info. At the end it outputs a filled-in config block — paste it into your SKILL.md.
-
-**Step 4: Create your Notion database** (if you don't have one)
-
-Either let Claude create it automatically during setup, or follow the manual guide in
-[`NOTION_SETUP.md`](./NOTION_SETUP.md).
-
----
-
-## Weekly Workflow
-
-Every Sunday (or whenever your shortcut data is ready):
-
-1. **Run the iOS Shortcut** — tap it from the Shortcuts app or Home Screen widget
-2. **Paste the output** into your Claude chat (the one with the skill loaded)
-3. **Give exercise numbers** when Claude asks (lifts, runs, yoga, pilates, cold plunges)
-4. **Done** — Notion updates, compliance reviewed
-
-Total time per week: ~2 minutes.
-
----
-
-## Compliance Rules
-
-| Macro | Bulk threshold | Cut threshold | Direction |
-|-------|---------------|--------------|-----------|
+| Macro | Bulk | Cut | Direction |
+|-------|------|-----|-----------|
 | Calories | ±12% | ±8% | Bidirectional |
-| Protein | 85% floor | 85% floor | Over = always Hit |
+| Protein | 85% floor | 85% floor | Over = always a Hit |
 | Carbs | ±20% | ±20% | Bidirectional |
 | Fat | ±20% | ±20% | Bidirectional |
 
-Exercise: 4+ lift sessions AND 2+ cardio/mobility sessions per week (runs, yoga,
-pilates, cold plunges each count as 1).
+Workouts: 4+ lifts **and** 2+ cardio/mobility sessions per week (runs, yoga, pilates,
+cold plunges each count as one). All of this is adjustable in your skill.
 
-All thresholds are configurable in your SKILL.md.
+</details>
 
----
+<details>
+<summary>Running a Bulk then a Cut? (multi-phase)</summary>
 
-## Multi-Phase Support
+<br>
 
-The skill supports up to two phases (e.g. a 24-week Bulk followed by a 12-week Cut).
-Each phase has its own:
-- Macro targets
-- Notion database
-- Compliance thresholds
+The skill handles up to two phases — e.g. a 24-week Bulk followed by a 12-week Cut — each
+with its own goals, Notion database, and thresholds. It figures out which phase you're in
+from today's date automatically. Single-phase users just ignore this.
 
-The skill auto-detects which phase is active based on today's date.
+</details>
 
----
+<details>
+<summary>FAQ</summary>
 
-## Files in this repo
+<br>
+
+**Does this cost anything?**
+The Shortcut and Notion are free. Claude Pro is ~$20/month. Nothing else.
+
+**Does it work on Android?**
+The Shortcut is iPhone-only, but the Claude + Notion half works anywhere. Android users can
+recreate the Shortcut with the Android Health app + Tasker and paste the same format.
+
+**Do I need MyFitnessPal Premium?**
+No — the free tier is fine. The system reads Apple Health, not MFP directly.
+
+**My Health data looks wrong.**
+Check MFP → Health sync (Settings → Sharing & Privacy → HealthKit Sharing). Data only syncs
+for days logged *after* you turned the connection on.
+
+**Can I use a different food app?**
+Yes — anything that writes nutrition to Apple Health works (Cronometer, MyMacros+, etc.).
+
+**I missed a week.**
+Tell Claude the week number and paste the data — it fills the right row no matter the date.
+
+**Can I share my tracker?**
+Yes. Each person runs their own setup, but you can share view-only access to a Notion tracker.
+
+**I want to track other activities (biking, swimming…).**
+Add a column to your Notion database and tell Claude its name — it'll start including it.
+
+</details>
+
+<details>
+<summary>What's in this repo</summary>
+
+<br>
 
 | File | What it is |
 |------|-----------|
-| `README.md` | This file — full system overview |
-| `mfp-muscle-protocol.zip` | The skill packaged for one-click upload to Claude.ai |
+| `mfp-muscle-protocol.zip` | The skill, packaged for one-click upload to Claude.ai |
 | `SKILL.md` | The skill source — same content, for reading/editing |
-| `SHORTCUT_SETUP.md` | Precise step-by-step iOS Shortcut build guide (Part 1) |
+| `SHORTCUT_SETUP.md` | Step-by-step iOS Shortcut build guide |
 | `NOTION_SETUP.md` | Manual Notion database setup guide |
 
----
-
-## FAQ
-
-**Does this cost anything?**
-The shortcut itself is free. Claude Pro is ~$20/month. Notion free tier is sufficient.
-No other subscriptions needed.
-
-**Does it work on Android?**
-Part 1 (iOS Shortcut) is iPhone only. Part 2 (Claude + Notion) works anywhere.
-Android users could adapt Part 1 by building a similar automation with the Android
-Health app and a shortcut tool like Tasker — then paste the output in the same format.
-
-**Does MyFitnessPal Premium matter?**
-No. You only need the free MFP tier. The system reads from Apple Health, not MFP directly.
-
-**What if I log in MyFitnessPal but the Health data looks wrong?**
-Verify MFP → Health sync is enabled (Settings → Sharing & Privacy → HealthKit Sharing).
-Data only syncs for days logged after the connection was established.
-
-**Can I track macros I enter manually in Apple Health instead of MFP?**
-Yes. The shortcut reads Apple Health regardless of the source. Any app that writes
-nutrition data to HealthKit works — MFP, Cronometer, MyMacros+, etc.
-
-**What if I miss a week of logging?**
-Tell Claude the week number and paste the data — it will fill in the correct row
-regardless of the current date.
-
-**Can I share the Notion database with someone else?**
-Yes. Each person needs their own Claude setup (with the skill configured to their own
-Notion DB), but you can share view-only access to someone's Notion tracker if you want.
-
-**I want to add more activity types (bike rides, swimming, etc.)**
-Add a Number column to your Notion database and tell Claude the column name. It will
-include it in future updates. Update the Exercise Status Auto formula to count it.
+</details>
 
 ---
 
-## License
-
-MIT — do whatever you want with it.
-
-## Credits
-
-Built by Dan with help from Claude (Anthropic).
-
-The "is between" date boundary workaround for iOS Shortcuts was discovered through
-extensive trial and error and is not documented by Apple.
+MIT licensed — do whatever you want with it. Built by Dan with help from Claude.
+The iOS "is between" date-filter workaround was found through a lot of trial and error and
+isn't documented by Apple.
