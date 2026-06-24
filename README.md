@@ -57,7 +57,7 @@ Cal: 2492 | Pro: 186g | Carbs: 215g | Fat: 105g
 
 **Install the Shortcut:**
 
-> 📲 [Download iOS Shortcut — tap to install on iPhone](REPLACE_WITH_ICLOUD_LINK)
+> 📲 [Download iOS Shortcut — tap to install on iPhone](https://www.icloud.com/shortcuts/76a4640f53734668bb8712ecb7f2f7e9)
 
 Prefer to build it yourself, or want to understand how the Sun–Sat window works?
 See the precise step-by-step build in **[SHORTCUT_SETUP.md](./SHORTCUT_SETUP.md)**.
