@@ -1,6 +1,6 @@
 # iOS Shortcut Setup Guide
 
-The precise, step-by-step build for the **MFP Weekly Macros** iOS Shortcut (Part 1 of the
+The precise, step-by-step build for the **AI Nutritionist** iOS Shortcut (Part 1 of the
 system). This pulls your weekly MyFitnessPal macro averages from Apple Health with a fixed
 **Sunday–Saturday** window and copies them to your clipboard in one tap.
 

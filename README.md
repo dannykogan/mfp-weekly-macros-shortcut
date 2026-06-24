@@ -1,4 +1,4 @@
-# MFP Muscle Protocol
+# AI Nutritionist
 
 Track your body-comp progress for **free**. One tap on your iPhone grabs your weekly
 MyFitnessPal averages → paste into Claude → your Notion tracker updates itself, compliance
@@ -54,11 +54,11 @@ That's it. Tapping the Shortcut copies your latest Sunday–Saturday averages, l
 
 **a. Connect Notion to Claude** — Claude.ai → Settings → Connectors → Notion → Connect.
 
-**b. Add the skill** — download **[`mfp-muscle-protocol.zip`](https://github.com/dannykogan/mfp-weekly-macros-shortcut/raw/main/mfp-muscle-protocol.zip)** (downloads directly, no GitHub account needed), then in Claude.ai go to **Settings → Capabilities → Skills → Upload skill** and pick the zip.
+**b. Add the skill** — download **[`ai-nutritionist.zip`](https://github.com/dannykogan/ai-nutritionist/raw/main/ai-nutritionist.zip)** (downloads directly, no GitHub account needed), then in Claude.ai go to **Settings → Capabilities → Skills → Upload skill** and pick the zip.
 
 **c. Tell Claude to set you up** — in a chat with the skill on, say:
 
-> "Set up my muscle protocol tracker"
+> "Set up my AI Nutritionist tracker"
 
 Claude asks for your phase dates, macro goals, and workout goals, then builds your Notion
 tracker for you (or connects to one you already have). One conversation and you're done.
@@ -152,7 +152,7 @@ Add a column to your Notion database and tell Claude its name — it'll start in
 
 | File | What it is |
 |------|-----------|
-| `mfp-muscle-protocol.zip` | The skill, packaged for one-click upload to Claude.ai |
+| `ai-nutritionist.zip` | The skill, packaged for one-click upload to Claude.ai |
 | `SKILL.md` | The skill source — same content, for reading/editing |
 | `SHORTCUT_SETUP.md` | Step-by-step iOS Shortcut build guide |
 | `NOTION_SETUP.md` | Manual Notion database setup guide |

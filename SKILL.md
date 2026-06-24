@@ -1,7 +1,7 @@
 ---
-name: mfp-muscle-protocol
+name: ai-nutritionist
 description: >
-  MFP Muscle Protocol skill. Trigger this skill when the user pastes weekly macro data
+  AI Nutritionist skill. Trigger this skill when the user pastes weekly macro data
   in any format containing calorie, protein, carb, and fat numbers (especially the iOS
   Shortcut format "Cal: Xg | Pro: Xg | Carbs: Xg | Fat: Xg"). Also trigger on phrases
   like "update my tracker", "log this week", "weekly check-in", "update Notion",
@@ -12,13 +12,13 @@ description: >
   weekly macro + exercise logging to Notion, and compliance review.
 ---
 
-# MFP Muscle Protocol — Claude Skill
+# AI Nutritionist — Claude Skill
 
 Paste your weekly MFP data → Claude logs it to Notion → compliance reviewed automatically.
 
-This is Part 2 of the MFP Muscle Protocol system. Part 1 (the iOS Shortcut that pulls
+This is Part 2 of the AI Nutritionist system. Part 1 (the iOS Shortcut that pulls
 your weekly averages from Apple Health) lives at:
-https://github.com/dannykogan/mfp-weekly-macros-shortcut
+https://github.com/dannykogan/ai-nutritionist
 
 ---
 
@@ -77,7 +77,7 @@ wait for the response before moving on.
 
 ### Block 1 — Phase Info
 
-> "Let's configure your Muscle Protocol tracker. First, the basics:
+> "Let's configure your AI Nutritionist tracker. First, the basics:
 >
 > 1. Are you in a **Bulk** (gaining) or **Cut** (losing) phase — or custom?
 > 2. When does this phase **start**? (e.g. June 1, 2026)
